@@ -14,8 +14,8 @@ set nofoldenable
 
 " Mouse
 set mouse=nv
-map <ScrollWheelUp> <C-Y>
-map <ScrollWheelDown> <C-E>
+noremap <ScrollWheelUp> <C-Y>
+noremap <ScrollWheelDown> <C-E>
 
 " Status bar and tab bar
 hi StatusLine ctermbg=white ctermfg=red
@@ -40,6 +40,9 @@ set statusline+=\ 		" Blankspace at the end
 " Formatting
 set autoindent
 set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
 
 " Syntax highlighing
 syntax on

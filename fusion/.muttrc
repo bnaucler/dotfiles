@@ -29,13 +29,15 @@ set copy			# Keep sent messages
 set tilde
 set sig_on_top			# Signature above quoted text
 set markers=no			# + signs suck on wrapping
-set index_format="%Z %{%m/%d} %-25.25L %s" # format of the index
+set index_format="%Z %{%m/%d} %-25.25L %s %>\ %C" # format of the index
 set implicit_autoview=yes	# Always use the mime-types defined in .mailcap
 set sleep_time=0		# Make mutt faster
 set menu_scroll			# Per-line mailbox scrolling
+unset beep
 
 # Text formatting
 auto_view text/html
+auto_view text/calendar
 alternative_order text/plain text/enriched text/html
 
 # Pager headers
@@ -57,33 +59,41 @@ set certificate_file=~/.mutt/certificates
 # Address book
 set alias_file=~/.mutt-alias
 source ~/.mutt-alias
-# set query_command= "abook --mutt-query '%s'" 
-# macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
 set query_command= "khard email --parsable %s"
 bind editor <Tab> complete-query
 bind editor ^T    complete
-
 macro index,pager A "<pipe-message>khard add-email<return>" "add the sender email address to khard"
 
 # URL view
 macro pager \cw <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
-# Navigation settings
+# Navigation settings - index
+bind index zt current-top
+bind index zz current-middle
+bind index zb current-bottom
+bind index \Cu half-up
+bind index \Cd half-down
+bind index J sidebar-next
+bind index K sidebar-prev
+bind index H sidebar-open
+
+macro index bb '<enter-command>toggle sidebar_visible<enter>'
+macro index b1 '<sync-mailbox><enter-command>source ~/.mutt/account.jails<enter><change-folder>!<enter>'
+macro index b2 '<sync-mailbox><enter-command>source ~/.mutt/account.homebase<enter><change-folder>!<enter>'
+macro index br  '<enter-command>source ~/.muttrc<enter>'
+
+# Navigation settings - pager
+bind pager gg top
+bind pager G bottom
 bind pager j next-line
 bind pager k previous-line
 bind pager J next-entry
 bind pager K previous-entry
-bind index J sidebar-next
-bind index K sidebar-prev
-bind index H sidebar-open
-macro index b '<enter-command>toggle sidebar_visible<enter>'
-macro pager b '<enter-command>toggle sidebar_visible<enter>'
-macro index \Cr  '<enter-command>source ~/.muttrc<enter>'
+bind pager \Cu half-up
+bind pager \Cd half-down
+bind pager bg group-reply
 
-# mailbox bindings
-macro index i <change-folder>$spoolfile<return>
-macro index 1 '<sync-mailbox><enter-command>source ~/.mutt/account.jails<enter><change-folder>!<enter>'
-macro index 2 '<sync-mailbox><enter-command>source ~/.mutt/account.homebase<enter><change-folder>!<enter>'
+macro pager bb '<enter-command>toggle sidebar_visible<enter>'
 
 # message color
 color index     cyan          default  ~U      # unread new mail
@@ -93,7 +103,7 @@ set attribution="* %n <%a> [%(%Y-%m-%d %H:%M:%S)]:"
 set quote_regexp="^( {0,4}[>|:]| {0,4}[a-z0-9]+[>|]+)+"
 set reply_regexp="^((re|RE|Re|r e|sv|SV|Sv):[ \t]*)*"
 set pager_format="%S [%C] %n (%l) %s"
-set forward_format="(Fwd:) %s"
+set forward_format="Fwd: %s"
 
 # URLs
 color body cyan         default "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
