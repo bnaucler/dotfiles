@@ -9,11 +9,8 @@ application/ics; mutt-ics; copiousoutput
 application/octet-stream; mutt-ics; copiousoutput
 
 # Images
-image/jpg; ~/.mutt/view_attachment.sh %s jpg
-image/jpeg; ~/.mutt/view_attachment.sh %s jpg
-image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
-image/png; ~/.mutt/view_attachment.sh %s png
-image/gif; ~/.mutt/view_attachment.sh %s gif
-
-# PDF
-application/pdf; ~/.mutt/view_attachment.sh %s pdf
+image/jpg; /usr/local/bin/feh  %s jpg
+image/jpeg; /usr/local/bin/feh  %s jpg
+image/pjpeg; /usr/local/bin/feh  %s jpg
+image/png; /usr/local/bin/feh  %s png
+image/gif; /usr/local/bin/feh  %s gif
