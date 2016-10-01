@@ -68,17 +68,15 @@ macro index,pager A "<pipe-message>khard add-email<return>" "add the sender emai
 macro pager \cw <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 # Navigation settings - index
-bind index gg first-entry
-bind index G last-entry
 bind index zt current-top
 bind index zz current-middle
 bind index zb current-bottom
 bind index \Cu half-up
 bind index \Cd half-down
-bind index bg group-reply
 bind index J sidebar-next
 bind index K sidebar-prev
 bind index H sidebar-open
+bind pager bg group-reply
 
 macro index bb '<enter-command>toggle sidebar_visible<enter>'
 macro index b1 '<sync-mailbox><enter-command>source ~/.mutt/account.jails<enter><change-folder>!<enter>'
