@@ -3,6 +3,10 @@
 " Script sources
 execute pathogen#infect()
 
+" Undo and swap buffers
+set updatecount=50
+set undolevels=1000
+
 " Display
 set ruler
 set laststatus=2
@@ -48,6 +52,7 @@ set noexpandtab
 syntax on
 filetype plugin indent on
 au BufRead,BufNewFile *.ino set filetype=arduino
+au BufRead,BufNewFile *.pde set filetype=arduino
 hi Comment ctermfg=magenta
 
 " Search
@@ -68,8 +73,14 @@ let mapleader = "\<Space>"
 let g:riv_global_leader = "\<C-K>"
 nnoremap ; :
 inoremap hh <Esc>
-nnoremap <Leader>n :set invrelativenumber<CR>
+nnoremap H <Home>
+nnoremap L <End>
+nnoremap zb zb<C-E><C-E><C-E>
+nnoremap zt zt<C-Y><C-Y><C-Y>
+nnoremap <C-E>  <C-E><C-E><C-E>
+nnoremap <C-Y>  <C-Y><C-Y><C-Y>
 nnoremap <C-L> :nohl<CR>:set nofoldenable<CR><C-L>
+nnoremap <Leader>n :set invrelativenumber<CR>
 nnoremap <Leader>p :PresentingStart<CR>
 nnoremap <Leader>r :source ~/.vimrc<CR>
 nnoremap <Leader>t :NERDTreeToggle<CR>
@@ -78,10 +89,17 @@ nnoremap <Leader>l :tabn<CR>
 nnoremap <Leader>h :tabp<CR>
 nnoremap <Leader>m :tabm<CR>
 nnoremap <Leader>c :center<CR>
-nnoremap <C-E>  <C-E><C-E><C-E>
-nnoremap <C-Y>  <C-Y><C-Y><C-Y>
-nnoremap H <Home>
-nnoremap L <End>
+
+" Vimux
+nnoremap <Leader>vv :VimuxPromptCommand("")<CR>
+nnoremap <Leader>vm :VimuxPromptCommand("make ")<CR>
+nnoremap <Leader>vr :VimuxRunLastCommand<CR>
+nnoremap <Leader>vo :VimuxRunCommand("clear && echo Vimux runner")<CR>
+nnoremap <Leader>vd :VimuxRunCommand("clear && cd " . expand('%:p:h'))<CR>
+nnoremap <Leader>vh :VimuxRunCommand("clear && cd ~")<CR>
+nnoremap <Leader>vl :VimuxRunCommand("clear && ls -l " . expand('%:p'))<CR>
+nnoremap <Leader>vp :VimuxRunCommand("clear && cd " . expand('%:p:h') .  "/.. &&  pio run -t upload")<CR>
+nnoremap <Leader>vq :VimuxCloseRunner<CR>
 
 " Automatic bracket closing 
 inoremap ( ()<Esc>i

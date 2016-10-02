@@ -76,6 +76,7 @@ bind index \Cd half-down
 bind index J sidebar-next
 bind index K sidebar-prev
 bind index H sidebar-open
+bind index bg group-reply
 
 macro index bb '<enter-command>toggle sidebar_visible<enter>'
 macro index b1 '<sync-mailbox><enter-command>source ~/.mutt/account.jails<enter><change-folder>!<enter>'
