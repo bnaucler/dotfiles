@@ -73,6 +73,7 @@ let mapleader = "\<Space>"
 let g:riv_global_leader = "\<C-K>"
 nnoremap ; :
 inoremap hh <Esc>
+vnoremap hh <Esc>
 nnoremap H <Home>
 nnoremap L <End>
 nnoremap zb zb<C-E><C-E><C-E>

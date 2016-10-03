@@ -4,9 +4,9 @@
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
 # Calendar
-text/calendar; mutt-ics; copiousoutput
-application/ics; mutt-ics; copiousoutput
-application/octet-stream; mutt-ics; copiousoutput
+text/calendar; khaler %s
+application/ics; khaler %s
+application/octet-stream; khaler %s
 
 # Images
 image/jpg; ~/.mutt/view_attachment.sh %s jpg

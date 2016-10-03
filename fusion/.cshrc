@@ -11,6 +11,7 @@ alias la	ls -a
 alias lf	ls -FA
 alias ll	ls -lA
 alias vi	vim
+alias whereis	which
 alias cal	gcal --starting-day=1
 alias apan	ssh -t apansson.se tmux a -d
 alias mnthome	sudo mount_smbfs -I router.asus.com //guest@router.asus.com/Shared /Volumes/SHARED
