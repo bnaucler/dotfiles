@@ -34,6 +34,7 @@ set implicit_autoview=yes	# Always use the mime-types defined in .mailcap
 set sleep_time=0		# Make mutt faster
 set menu_scroll			# Per-line mailbox scrolling
 unset beep
+unset metoo
 
 # Text formatting
 auto_view text/html

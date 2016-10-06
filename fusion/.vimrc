@@ -76,6 +76,7 @@ inoremap hh <Esc>
 vnoremap hh <Esc>
 nnoremap H <Home>
 nnoremap L <End>
+nnoremap <CR> o<Esc>k
 nnoremap zb zb<C-E><C-E><C-E>
 nnoremap zt zt<C-Y><C-Y><C-Y>
 nnoremap <C-E>  <C-E><C-E><C-E>
@@ -84,12 +85,18 @@ nnoremap <C-L> :nohl<CR>:set nofoldenable<CR><C-L>
 nnoremap <Leader>n :set invrelativenumber<CR>
 nnoremap <Leader>p :PresentingStart<CR>
 nnoremap <Leader>r :source ~/.vimrc<CR>
-nnoremap <Leader>t :NERDTreeToggle<CR>
+nnoremap <Leader>tt :NERDTreeToggle<CR>
+nnoremap <Leader>tc :NERDTree-cd<CR>
 nnoremap <Leader>f :tabe 
-nnoremap <Leader>l :tabn<CR>  
+nnoremap <Leader>l :tabn<CR>
 nnoremap <Leader>h :tabp<CR>
 nnoremap <Leader>m :tabm<CR>
 nnoremap <Leader>c :center<CR>
+nnoremap <Leader>w :r ! w3m -dump 
+nnoremap <Leader>ss :! surfraw -browser=open stack 
+nnoremap <Leader>sg :! surfraw -browser=open google 
+nnoremap <Leader>sds :r ! surfraw -browser=dw3m.sh stack 
+nnoremap <Leader>sdg :r ! surfraw -browser=dw3m.sh google 
 
 " Vimux
 nnoremap <Leader>vv :VimuxPromptCommand("")<CR>
