@@ -83,7 +83,8 @@ nnoremap <C-E>  <C-E><C-E><C-E>
 nnoremap <C-Y>  <C-Y><C-Y><C-Y>
 nnoremap <C-L> :nohl<CR>:set nofoldenable<CR><C-L>
 nnoremap <Leader>n :set invrelativenumber<CR>
-nnoremap <Leader>p :PresentingStart<CR>
+nnoremap <Leader>s :PresentingStart<CR>
+nnoremap <Leader>p :set paste!<CR>
 nnoremap <Leader>r :source ~/.vimrc<CR>
 nnoremap <Leader>tt :NERDTreeToggle<CR>
 nnoremap <Leader>tc :NERDTree-cd<CR>
