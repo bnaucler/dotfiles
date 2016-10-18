@@ -30,6 +30,7 @@ set path = (~/bin /sbin /bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /
 
 setenv	EDITOR	vim
 setenv	PAGER	more
+setenv	TERM	screen-256color
 setenv	BLOCKSIZE	K
 setenv	LC_ALL en_us.utf-8
 setenv	ANDROID_HOME /usr/local/opt/android-sdk

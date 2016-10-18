@@ -11,8 +11,8 @@ set undolevels=1000
 set ruler
 set laststatus=2
 set linebreak
-set number
 set relativenumber
+set number
 set display+=lastline
 set nofoldenable
 
@@ -21,11 +21,17 @@ set mouse=nv
 noremap <ScrollWheelUp> <C-Y>
 noremap <ScrollWheelDown> <C-E>
 
+" Normal backspace
+set backspace=eol,start
+
+" System clipboard integration
+set clipboard=unnamed
+
 " Status bar and tab bar
-hi StatusLine ctermbg=white ctermfg=red
-hi TabLineFill ctermbg=red ctermfg=white
+hi StatusLine ctermbg=white ctermfg=blue
+hi TabLineFill ctermbg=blue ctermfg=white
 hi TabLine ctermbg=white ctermfg=black
-hi TabLineSel ctermbg=red ctermfg=white
+hi TabLineSel ctermbg=blue ctermfg=white
 set statusline=%F       "tail of the filename
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=%{&ff}] "file format
@@ -39,7 +45,7 @@ set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set statusline+=\ \|	"divider
 set statusline+=\ %{strftime(\"%H:%M\")} " Display current time
-set statusline+=\ 		" Blankspace at the end 
+set statusline+=\ 		" Blankspace at the end
 
 " Formatting
 set autoindent
@@ -68,6 +74,9 @@ autocmd FileType arduino setlocal commentstring=//\ %s
 let NERDTreeMapOpenInTab='<ENTER>'
 let NERDTreeQuitOnOpen=1
 
+" Better Whitespace
+highlight ExtraWhitespace ctermbg=red
+
 " Kebindings
 let mapleader = "\<Space>"
 let g:riv_global_leader = "\<C-K>"
@@ -82,8 +91,8 @@ nnoremap zt zt<C-Y><C-Y><C-Y>
 nnoremap <C-E>  <C-E><C-E><C-E>
 nnoremap <C-Y>  <C-Y><C-Y><C-Y>
 nnoremap <C-L> :nohl<CR>:set nofoldenable<CR><C-L>
-nnoremap <Leader>n :set invrelativenumber<CR>
-nnoremap <Leader>s :PresentingStart<CR>
+nnoremap <Leader>n :set relativenumber!<CR>:set number!<CR>
+" nnoremap <Leader>s :PresentingStart<CR>
 nnoremap <Leader>p :set paste!<CR>
 nnoremap <Leader>r :source ~/.vimrc<CR>
 nnoremap <Leader>tt :NERDTreeToggle<CR>
@@ -93,11 +102,14 @@ nnoremap <Leader>l :tabn<CR>
 nnoremap <Leader>h :tabp<CR>
 nnoremap <Leader>m :tabm<CR>
 nnoremap <Leader>c :center<CR>
-nnoremap <Leader>w :r ! w3m -dump 
-nnoremap <Leader>ss :! surfraw -browser=open stack 
-nnoremap <Leader>sg :! surfraw -browser=open google 
-nnoremap <Leader>sds :r ! surfraw -browser=dw3m.sh stack 
-nnoremap <Leader>sdg :r ! surfraw -browser=dw3m.sh google 
+nnoremap <Leader>; mo$a;<Esc>`o
+nnoremap <Leader>wd :silent r ! w3m -dump 
+nnoremap <Leader>wt :ToggleWhitespace<CR>
+nnoremap <Leader>ws :StripWhitespace<CR>
+nnoremap <Leader>ss :silent ! surfraw -browser=open stack 
+nnoremap <Leader>sg :silent ! surfraw -browser=open google 
+nnoremap <Leader>sds :silent r ! surfraw -browser=dw3m.sh stack 
+nnoremap <Leader>sdg :silent r ! surfraw -browser=dw3m.sh google 
 
 " Vimux
 nnoremap <Leader>vv :VimuxPromptCommand("")<CR>
@@ -110,7 +122,7 @@ nnoremap <Leader>vl :VimuxRunCommand("clear && ls -l " . expand('%:p'))<CR>
 nnoremap <Leader>vp :VimuxRunCommand("clear && cd " . expand('%:p:h') .  "/.. &&  pio run -t upload")<CR>
 nnoremap <Leader>vq :VimuxCloseRunner<CR>
 
-" Automatic bracket closing 
+" Automatic bracket closing
 inoremap ( ()<Esc>i
 inoremap { {}<Esc>i
 inoremap [ []<Esc>i
