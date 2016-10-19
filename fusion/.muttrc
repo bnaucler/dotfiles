@@ -9,7 +9,7 @@ folder-hook 'mail.homebase.dk' 'source /Users/rewt/.mutt/account.homebase'
 source /Users/rewt/.mutt/account.homebase
 
 # General settings
-set from="mail@bnaucler.se"
+set from= "mail@bnaucler.se"
 set realname="Björn Westerberg Nauclér"
 set signature=~/.signature
 set certificate_file=~/.muttcert
