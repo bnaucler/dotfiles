@@ -83,8 +83,8 @@ let g:riv_global_leader = "\<C-K>"
 nnoremap ; :
 inoremap hh <Esc>
 vnoremap hh <Esc>
-nnoremap H <Home>
-nnoremap L <End>
+nnoremap H 0
+nnoremap L $
 nnoremap <CR> o<Esc>k
 nnoremap zb zb<C-E><C-E><C-E>
 nnoremap zt zt<C-Y><C-Y><C-Y>
@@ -92,7 +92,7 @@ nnoremap <C-E>  <C-E><C-E><C-E>
 nnoremap <C-Y>  <C-Y><C-Y><C-Y>
 nnoremap <C-L> :nohl<CR>:set nofoldenable<CR><C-L>
 nnoremap <Leader>n :set relativenumber!<CR>:set number!<CR>
-" nnoremap <Leader>s :PresentingStart<CR>
+nnoremap <Leader>s :PresentingStart<CR>
 nnoremap <Leader>p :set paste!<CR>
 nnoremap <Leader>r :source ~/.vimrc<CR>
 nnoremap <Leader>tt :NERDTreeToggle<CR>
@@ -100,7 +100,10 @@ nnoremap <Leader>tc :NERDTree-cd<CR>
 nnoremap <Leader>f :tabe 
 nnoremap <Leader>l :tabn<CR>
 nnoremap <Leader>h :tabp<CR>
-nnoremap <Leader>m :tabm<CR>
+nnoremap <Leader><Leader>h :tabm 0<CR>
+nnoremap <Leader><Leader>j :tabm -1<CR>
+nnoremap <Leader><Leader>k :tabm +1<CR>
+nnoremap <Leader><Leader>l :tabm<CR>
 nnoremap <Leader>c :center<CR>
 nnoremap <Leader>; mo$a;<Esc>`o
 nnoremap <Leader>wd :silent r ! w3m -dump 
@@ -126,3 +129,6 @@ nnoremap <Leader>vq :VimuxCloseRunner<CR>
 inoremap ( ()<Esc>i
 inoremap { {}<Esc>i
 inoremap [ []<Esc>i
+
+" Initialize options at startup
+autocmd VimEnter * ToggleWhitespace
