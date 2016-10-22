@@ -42,9 +42,8 @@ set statusline+=%y      "filetype
 set statusline+=%=      "left/right separator
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
-set statusline+=\ \|	"divider
-set statusline+=\ %{strftime(\"%H:%M\")} " Display current time
+set statusline+=\ \|\ 	"divider
+set statusline+=%{strftime(\"%H:%M\")} " Display current time
 set statusline+=\ 		" Blankspace at the end
 
 " Formatting
@@ -123,6 +122,7 @@ nnoremap <Leader>vd :VimuxRunCommand("clear && cd " . expand('%:p:h'))<CR>
 nnoremap <Leader>vh :VimuxRunCommand("clear && cd ~")<CR>
 nnoremap <Leader>vl :VimuxRunCommand("clear && ls -l " . expand('%:p'))<CR>
 nnoremap <Leader>vp :VimuxRunCommand("clear && cd " . expand('%:p:h') .  "/.. &&  pio run -t upload")<CR>
+nnoremap <Leader>vc :VimuxRunCommand("clear && cloc " . expand('%:p:h'))<CR>
 nnoremap <Leader>vq :VimuxCloseRunner<CR>
 
 " Automatic bracket closing
