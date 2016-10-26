@@ -13,30 +13,30 @@ set from="mail@bnaucler.se"
 set realname="Björn Westerberg Nauclér"
 set signature=~/.signature
 set certificate_file=~/.muttcert
-set editor="vim"		# Vim and start on first empty line
-set delete				# Autodelete on quit
-set move=no				# Don't move new msgs to mailbox
-set fast_reply			# Don't ask questions on reply
-set include				# Always include message on reply
+set editor="vim +Goyo"			# vim with a zen feeling to it
+set delete						# Autodelete on quit
+set move=no						# Don't move new msgs to mailbox
+set fast_reply					# Don't ask questions on reply
+set include						# Always include message on reply
 set pager="builtin"
 set pager_context=3
-set pager_index_lines=8	# how many index lines to show in the pager
-set pager_stop			# don't move to the next message on next-page
-set noprompt_after		# ask me for a command after the external pager exits
-set read_inc=25			# show progress when reading a mailbox
-set reply_to			# always use reply-to if present
-set copy				# Keep sent messages
+set pager_index_lines=8			# how many index lines to show in the pager
+set pager_stop					# don't move to the next message on next-page
+set noprompt_after				# ask me for a command after the external pager exits
+set read_inc=25					# show progress when reading a mailbox
+set reply_to					# always use reply-to if present
+set copy						# Keep sent messages
 set tilde
-set wait_key=no			# No confirmation to return after shell command
-set beep=no				# Please be silent
-set metoo=no			# Do not group reply to self
-set sig_on_top			# Signature above quoted text
-set markers=no			# + signs suck on wrapping
-set index_format="%Z %{%m/%d} %-25.25L %s %>\ %C" # format of the index
-set implicit_autoview=yes	# Always use the mime-types defined in .mailcap
-set sleep_time=0		# Make mutt faster
-set menu_scroll			# Per-line mailbox scrolling
-set noconfirmappend		# Less clicking <ENTER> all the time
+set wait_key=no					# No confirmation to return after shell command
+set beep=no						# Please be silent
+set metoo=no					# Do not group reply to self
+set sig_on_top					# Signature above quoted text
+set markers=no					# + signs suck on wrapping
+set index_format="%Z %{%m/%d} %-25.25L %s %>\ %C"
+set implicit_autoview=yes		# Always use the mime-types defined in .mailcap
+set sleep_time=0				# Make mutt faster
+set menu_scroll					# Per-line mailbox scrolling
+set noconfirmappend				# Less clicking <ENTER> all the time
 
 # Text formatting
 auto_view text/html

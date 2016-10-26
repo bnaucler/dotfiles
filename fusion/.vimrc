@@ -16,7 +16,8 @@ set number
 set display+=lastline
 set nofoldenable
 
-" Mouse
+" Movement
+set scrolloff=3
 set mouse=nv
 noremap <ScrollWheelUp> <C-Y>
 noremap <ScrollWheelDown> <C-E>
@@ -82,11 +83,13 @@ let g:riv_global_leader = "\<C-K>"
 nnoremap ; :
 inoremap hh <Esc>
 vnoremap hh <Esc>
-nnoremap H 0
+nnoremap H ^
 nnoremap L $
+nnoremap j gj
+nnoremap k gk
 nnoremap <CR> o<Esc>k
-nnoremap zb zb<C-E><C-E><C-E>
-nnoremap zt zt<C-Y><C-Y><C-Y>
+" nnoremap zb zb<C-E><C-E><C-E>
+" nnoremap zt zt<C-Y><C-Y><C-Y>
 nnoremap <C-E>  <C-E><C-E><C-E>
 nnoremap <C-Y>  <C-Y><C-Y><C-Y>
 nnoremap <C-L> :nohl<CR>:set nofoldenable<CR><C-L>

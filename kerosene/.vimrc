@@ -3,24 +3,35 @@
 " Script sources
 execute pathogen#infect()
 
+" Undo and swap buffers
+set updatecount=50
+set undolevels=1000
+
 " Display
 set ruler
 set laststatus=2
 set linebreak
-set number
 set relativenumber
+set number
 set display+=lastline
+set nofoldenable
 
 " Mouse
-set mouse=a
-map <ScrollWheelUp> <C-Y>
-map <ScrollWheelDown> <C-E>
+set mouse=nv
+noremap <ScrollWheelUp> <C-Y>
+noremap <ScrollWheelDown> <C-E>
+
+" Normal backspace
+set backspace=eol,start
+
+" System clipboard integration
+set clipboard=unnamed
 
 " Status bar and tab bar
-hi StatusLine ctermbg=white ctermfg=red
-hi TabLineFill ctermbg=red ctermfg=white
+hi StatusLine ctermbg=white ctermfg=blue
+hi TabLineFill ctermbg=blue ctermfg=white
 hi TabLine ctermbg=white ctermfg=black
-hi TabLineSel ctermbg=red ctermfg=white
+hi TabLineSel ctermbg=blue ctermfg=white
 set statusline=%F       "tail of the filename
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=%{&ff}] "file format
@@ -31,19 +42,23 @@ set statusline+=%y      "filetype
 set statusline+=%=      "left/right separator
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
-set statusline+=\ \|	"divider
-set statusline+=\ %{strftime(\"%H:%M\")} " Display current time
-set statusline+=\ 		" Blankspace at the end 
+set statusline+=\ \|\ 	"divider
+set statusline+=%{strftime(\"%H:%M\")} " Display current time
+set statusline+=\ 		" Blankspace at the end
 
 " Formatting
 set autoindent
 set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
 
 " Syntax highlighing
 syntax on
 filetype plugin indent on
 au BufRead,BufNewFile *.ino set filetype=arduino
+au BufRead,BufNewFile *.pde set filetype=arduino
+hi Comment ctermfg=magenta
 
 " Search
 set hlsearch
@@ -58,27 +73,62 @@ autocmd FileType arduino setlocal commentstring=//\ %s
 let NERDTreeMapOpenInTab='<ENTER>'
 let NERDTreeQuitOnOpen=1
 
-" Riv
-set nofoldenable
+" Better Whitespace
+highlight ExtraWhitespace ctermbg=red
 
 " Kebindings
 let mapleader = "\<Space>"
+let g:riv_global_leader = "\<C-K>"
 nnoremap ; :
 inoremap hh <Esc>
-nnoremap <Leader>n :set invrelativenumber<CR>
+vnoremap hh <Esc>
+nnoremap H 0
+nnoremap L $
+nnoremap <CR> o<Esc>k
+nnoremap zb zb<C-E><C-E><C-E>
+nnoremap zt zt<C-Y><C-Y><C-Y>
+nnoremap <C-E>  <C-E><C-E><C-E>
+nnoremap <C-Y>  <C-Y><C-Y><C-Y>
 nnoremap <C-L> :nohl<CR>:set nofoldenable<CR><C-L>
-nnoremap <Leader>p :PresentingStart<CR>
+nnoremap <Leader>n :set relativenumber!<CR>:set number!<CR>
+nnoremap <Leader>s :PresentingStart<CR>
+nnoremap <Leader>p :set paste!<CR>
 nnoremap <Leader>r :source ~/.vimrc<CR>
-nnoremap <Leader>t :NERDTreeToggle<CR>
+nnoremap <Leader>tt :NERDTreeToggle<CR>
+nnoremap <Leader>tc :NERDTree-cd<CR>
 nnoremap <Leader>f :tabe 
-nnoremap <Leader>l :tabn<CR>  
+nnoremap <Leader>l :tabn<CR>
 nnoremap <Leader>h :tabp<CR>
-nnoremap <Leader>m :tabm<CR>
+nnoremap <Leader><Leader>h :tabm 0<CR>
+nnoremap <Leader><Leader>j :tabm -1<CR>
+nnoremap <Leader><Leader>k :tabm +1<CR>
+nnoremap <Leader><Leader>l :tabm<CR>
 nnoremap <Leader>c :center<CR>
-nnoremap H <Home>
-nnoremap L <End>
+nnoremap <Leader>; mo$a;<Esc>`o
+nnoremap <Leader>wd :silent r ! w3m -dump 
+nnoremap <Leader>wt :ToggleWhitespace<CR>
+nnoremap <Leader>ws :StripWhitespace<CR>
+nnoremap <Leader>ss :silent ! surfraw -browser=open stack 
+nnoremap <Leader>sg :silent ! surfraw -browser=open google 
+nnoremap <Leader>sds :silent r ! surfraw -browser=dw3m.sh stack 
+nnoremap <Leader>sdg :silent r ! surfraw -browser=dw3m.sh google 
 
-" Automatic bracket closing 
+" Vimux
+nnoremap <Leader>vv :VimuxPromptCommand("")<CR>
+nnoremap <Leader>vm :VimuxPromptCommand("make ")<CR>
+nnoremap <Leader>vr :VimuxRunLastCommand<CR>
+nnoremap <Leader>vo :VimuxRunCommand("clear && echo Vimux runner")<CR>
+nnoremap <Leader>vd :VimuxRunCommand("clear && cd " . expand('%:p:h'))<CR>
+nnoremap <Leader>vh :VimuxRunCommand("clear && cd ~")<CR>
+nnoremap <Leader>vl :VimuxRunCommand("clear && ls -l " . expand('%:p'))<CR>
+nnoremap <Leader>vp :VimuxRunCommand("clear && cd " . expand('%:p:h') .  "/.. &&  pio run -t upload")<CR>
+nnoremap <Leader>vc :VimuxRunCommand("clear && cloc " . expand('%:p:h'))<CR>
+nnoremap <Leader>vq :VimuxCloseRunner<CR>
+
+" Automatic bracket closing
 inoremap ( ()<Esc>i
 inoremap { {}<Esc>i
 inoremap [ []<Esc>i
+
+" Initialize options at startup
+autocmd VimEnter * ToggleWhitespace
