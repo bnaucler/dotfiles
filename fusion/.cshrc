@@ -26,7 +26,7 @@ set prompt="<%n@%m %b%/> "
 
 set nobeep
 
-set path = (~/bin /sbin /bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /usr/games /usr/X11R6/bin $HOME/bin)
+set path = (~/bin /sbin /bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /usr/games /usr/X11R6/bin $HOME/bin /usr/local/texbin)
 
 setenv	EDITOR	vim
 setenv	PAGER	more

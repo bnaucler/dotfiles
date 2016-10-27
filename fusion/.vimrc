@@ -79,7 +79,6 @@ highlight ExtraWhitespace ctermbg=red
 
 " Kebindings
 let mapleader = "\<Space>"
-let g:riv_global_leader = "\<C-K>"
 nnoremap ; :
 inoremap hh <Esc>
 vnoremap hh <Esc>
@@ -87,12 +86,12 @@ nnoremap H ^
 nnoremap L $
 nnoremap j gj
 nnoremap k gk
+nnoremap Q <NOP>
 nnoremap <CR> o<Esc>k
-" nnoremap zb zb<C-E><C-E><C-E>
-" nnoremap zt zt<C-Y><C-Y><C-Y>
 nnoremap <C-E>  <C-E><C-E><C-E>
 nnoremap <C-Y>  <C-Y><C-Y><C-Y>
 nnoremap <C-L> :nohl<CR>:set nofoldenable<CR><C-L>
+inoremap <C-U> <Esc>^d$i
 nnoremap <Leader>n :set relativenumber!<CR>:set number!<CR>
 nnoremap <Leader>s :PresentingStart<CR>
 nnoremap <Leader>p :set paste!<CR>
@@ -115,6 +114,8 @@ nnoremap <Leader>ss :silent ! surfraw -browser=open stack
 nnoremap <Leader>sg :silent ! surfraw -browser=open google 
 nnoremap <Leader>sds :silent r ! surfraw -browser=dw3m.sh stack 
 nnoremap <Leader>sdg :silent r ! surfraw -browser=dw3m.sh google 
+nnoremap <Leader>xp :w<CR>:silent ! pandoc %:p -s -o %:p:r.pdf &<CR>
+nnoremap <Leader>xh :w<CR>:silent ! pandoc %:p -s -o %:p:r.html &<CR>
 
 " Vimux
 nnoremap <Leader>vv :VimuxPromptCommand("")<CR>
