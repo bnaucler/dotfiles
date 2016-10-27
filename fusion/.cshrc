@@ -1,39 +1,51 @@
-# $Fre2BSD: src/share/skel/dot.cshrc,v 1.13 2001/01/10 17:35:28 archie Exp $
+# bnaucler's .cshrc
 #
-# .cshrc - csh resource script, read at beginning of execution by each shell
-#
-# see also csh(1), environ(7).
-#
+# based on FreeBSD 12 skelfiles
 
-alias h		history 25
-alias j		jobs -l
-alias la	ls -a
-alias lf	ls -FA
-alias ll	ls -lA
-alias vi	vim
-alias whereis	which
-alias cal	gcal --starting-day=1
-alias apan	ssh -t apansson.se tmux a -d
-alias mnthome	sudo mount_smbfs -I router.asus.com //guest@router.asus.com/Shared /Volumes/SHARED
-alias weather	ansiweather -a false -l 
-alias gweather	curl wttr.in/
+# Alias
+alias h				history 25
+alias j				jobs -l
+alias la			ls -a
+alias lf			ls -FA
+alias ll			ls -lA
+alias vi			vim
+alias whereis		which
+alias cal			gcal --starting-day=1
+alias apan			ssh -t apansson.se tmux a -d
+alias mnthome		sudo mount_smbfs //guest@router.asus.com/Shared /Volumes/SHARED
+# alias mnthome		sudo mount_smbfs -I router.asus.com //guest@router.asus.com/Shared /Volumes/SHARED
+alias weather		ansiweather -a false -l
+alias gweather		curl wttr.in/
+
+# Color definitions
+set     RED="%{\033[0;31m%}"
+set   GREEN="%{\033[0;32m%}"
+set  YELLOW="%{\033[0;33m%}"
+set    BLUE="%{\033[0;34m%}"
+set MAGENTA="%{\033[0;35m%}"
+set    CYAN="%{\033[0;36m%}"
+set   WHITE="%{\033[1;37m%}"
+set   RESET="%{\033[0m%}"
 
 # UMask
 umask 006
 
 # Prompt
-set prompt="<%n@%m %b%/> "
+set prompt="<%n@${WHITE}%m${RESET} %b%/> "
 
+# BE QUIET!
 set nobeep
 
-set path = (~/bin /sbin /bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /usr/games /usr/X11R6/bin $HOME/bin /usr/local/texbin)
+set PATH = (~/bin /sbin /bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /usr/games /usr/X11R6/bin $HOME/bin $HOME/Dropbox/go/bin /usr/local/texbin)
 
-setenv	EDITOR	vim
-setenv	PAGER	more
-setenv	TERM	screen-256color
-setenv	BLOCKSIZE	K
-setenv	LC_ALL en_us.utf-8
-setenv	ANDROID_HOME /usr/local/opt/android-sdk
+setenv	EDITOR			vim
+setenv	PAGER			less
+setenv	TERM			screen-256color
+setenv	BLOCKSIZE		K
+setenv	LC_ALL			en_us.utf-8
+setenv	ANDROID_HOME	/usr/local/opt/android-sdk
+setenv  GOPATH			$HOME/Dropbox/go
+setenv	LOCATION		amsterdam
 
 if ($?prompt) then
 	# An interactive shell -- set some stuff up
