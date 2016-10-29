@@ -12,5 +12,5 @@ if (-x /usr/local/bin/ansiweather) then
 endif
 
 if (-x /usr/local/bin/figlet) then
-	/usr/local/bin/figlet hello
+	/usr/local/bin/figlet hello $LOGNAME
 endif
