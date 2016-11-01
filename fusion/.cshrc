@@ -13,7 +13,6 @@ alias whereis		which
 alias cal			gcal --starting-day=1
 alias apan			ssh -t apansson.se tmux a -d
 alias mnthome		sudo mount_smbfs //guest@router.asus.com/Shared /Volumes/SHARED
-# alias mnthome		sudo mount_smbfs -I router.asus.com //guest@router.asus.com/Shared /Volumes/SHARED
 alias weather		ansiweather -a false -l
 alias gweather		curl wttr.in/
 

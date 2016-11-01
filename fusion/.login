@@ -1,9 +1,7 @@
-# $FreeBSD: head/share/skel/dot.login 278616 2015-02-12 05:35:00Z cperciva $
+# bnaucler's .login script
 #
-# .login - csh login script, read by login shell, after `.cshrc' at login.
-#
-# see also csh(1), environ(7).
-#
+# To make you feel a little more welcome?
+# For csh / tcsh
 
 clear
 
@@ -12,5 +10,5 @@ if (-x /usr/local/bin/ansiweather) then
 endif
 
 if (-x /usr/local/bin/figlet) then
-	/usr/local/bin/figlet -f $HOME/.figlet/chunky.flf hello
+	/usr/local/bin/figlet hello $LOGNAME
 endif

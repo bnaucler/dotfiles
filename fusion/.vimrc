@@ -76,6 +76,7 @@ let NERDTreeQuitOnOpen=1
 
 " Better Whitespace
 highlight ExtraWhitespace ctermbg=red
+let g:better_whitespace_filetypes_blacklist=['go', 'diff', 'gitcommit', 'unite', 'qf', 'help']
 
 " Kebindings
 let mapleader = "\<Space>"
@@ -118,14 +119,16 @@ nnoremap <Leader>xp :w<CR>:silent ! pandoc %:p -s -o %:p:r.pdf &<CR>
 nnoremap <Leader>xh :w<CR>:silent ! pandoc %:p -s -o %:p:r.html &<CR>
 
 " Vimux
+let VimuxUseNearest = 0
+let g:VimuxPromptString = "cmd: "
 nnoremap <Leader>vv :VimuxPromptCommand("")<CR>
-nnoremap <Leader>vm :VimuxPromptCommand("make ")<CR>
+nnoremap <Leader>vm :w<CR>:VimuxPromptCommand("make ")<CR>
 nnoremap <Leader>vr :VimuxRunLastCommand<CR>
 nnoremap <Leader>vo :VimuxRunCommand("clear && echo Vimux runner")<CR>
 nnoremap <Leader>vd :VimuxRunCommand("clear && cd " . expand('%:p:h'))<CR>
 nnoremap <Leader>vh :VimuxRunCommand("clear && cd ~")<CR>
 nnoremap <Leader>vl :VimuxRunCommand("clear && ls -l " . expand('%:p'))<CR>
-nnoremap <Leader>vp :VimuxRunCommand("clear && cd " . expand('%:p:h') .  "/.. &&  pio run -t upload")<CR>
+nnoremap <Leader>vp :w<CR>:VimuxRunCommand("clear && cd " . expand('%:p:h') .  "/.. &&  pio run -t upload")<CR>
 nnoremap <Leader>vc :VimuxRunCommand("clear && cloc " . expand('%:p:h'))<CR>
 nnoremap <Leader>vq :VimuxCloseRunner<CR>
 
