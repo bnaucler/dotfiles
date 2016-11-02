@@ -2,6 +2,7 @@
 
 " Script sources
 execute pathogen#infect()
+call pathogen#helptags()
 
 " Undo and swap buffers
 set updatecount=50
@@ -62,9 +63,14 @@ au BufRead,BufNewFile *.pde set filetype=arduino
 hi Comment ctermfg=magenta
 
 " Search
+set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+
+" Wildmenu
+set wildmenu
+set wildmode=list:full
 
 " Commentary
 autocmd FileType c setlocal commentstring=//\ %s
