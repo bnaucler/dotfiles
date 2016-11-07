@@ -125,6 +125,7 @@ set status_format="[Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag
 # Sidebar;
 set sidebar_visible = yes
 set sidebar_width   = 18
+color sidebar_highlight black white
 
 # Printing
 set print_command="/Users/rewt/bin/mutt_print"
