@@ -4,29 +4,31 @@
 set sendmail = "/usr/local/bin/msmtp -a mail.jails.se"
 
 # Initiate accounts
-folder-hook 'mail.jails.se' 'source /Users/rewt/.mutt/account.jails'
-folder-hook 'mail.homebase.dk' 'source /Users/rewt/.mutt/account.homebase'
-source /Users/rewt/.mutt/account.homebase
+folder-hook 'mail.jails.se' 'source $HOME/.mutt/account.jails'
+folder-hook 'mail.homebase.dk' 'source $HOME/.mutt/account.homebase'
+source $HOME/.mutt/account.homebase
 
-# General settings
+# Who am I?
 set from="mail@bnaucler.se"
 set realname="Björn Westerberg Nauclér"
-set signature=~/.signature
-set certificate_file=~/.muttcert
+set signature=$HOME/.signature
+set certificate_file=$HOME/.muttcert
+
+# General settings
 set editor="vim +Goyo"			# vim with a zen feeling to it
 set delete						# Autodelete on quit
 set move=no						# Don't move new msgs to mailbox
 set fast_reply					# Don't ask questions on reply
 set include						# Always include message on reply
 set pager="builtin"
-set pager_context=3
+set pager_context=3				# 3 lines of overlap when jumping page
 set pager_index_lines=8			# how many index lines to show in the pager
 set pager_stop					# don't move to the next message on next-page
 set noprompt_after				# ask me for a command after the external pager exits
 set read_inc=25					# show progress when reading a mailbox
 set reply_to					# always use reply-to if present
 set copy						# Keep sent messages
-set tilde
+set tilde						# Show EOF like vim
 set wait_key=no					# No confirmation to return after shell command
 set beep=no						# Please be silent
 set metoo=no					# Do not group reply to self
@@ -55,13 +57,13 @@ set sort_browser=reverse-date
 set sort_aux=reverse-last-date-received
 
 # Cache & storage
-set header_cache=~/.mutt/cache/headers
-set message_cachedir=~/.mutt/cache/bodies
-set certificate_file=~/.mutt/certificates
+set header_cache=$HOME/.mutt/cache/headers
+set message_cachedir=$HOME/.mutt/cache/bodies
+set certificate_file=$HOME/.mutt/certificates
 
 # Address book
-set alias_file=~/.mutt-alias
-source ~/.mutt-alias
+set alias_file=$HOME/.mutt-alias
+source $HOME/.mutt-alias
 set query_command= "khard email --parsable %s"
 bind editor <Tab> complete-query
 bind editor ^T    complete
@@ -82,8 +84,8 @@ bind index H sidebar-open
 bind index bg group-reply
 
 macro index bb '<enter-command>toggle sidebar_visible<enter>'
-macro index b1 '<sync-mailbox><enter-command>source ~/.mutt/account.jails<enter><change-folder>!<enter>'
-macro index b2 '<sync-mailbox><enter-command>source ~/.mutt/account.homebase<enter><change-folder>!<enter>'
+macro index b1 '<sync-mailbox><enter-command>source $HOME/.mutt/account.jails<enter><change-folder>!<enter>'
+macro index b2 '<sync-mailbox><enter-command>source $HOME/.mutt/account.homebase<enter><change-folder>!<enter>'
 macro index br  '<enter-command>source ~/.muttrc<enter>'
 
 macro index bj ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=jobs\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
@@ -128,4 +130,4 @@ set sidebar_width   = 18
 color sidebar_highlight black white
 
 # Printing
-set print_command="/Users/rewt/bin/mutt_print"
+set print_command="$HOME/bin/mutt_print"

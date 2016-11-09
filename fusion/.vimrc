@@ -70,7 +70,7 @@ set smartcase
 
 " Wildmenu
 set wildmenu
-set wildmode=list:full
+set wildmode=list:longest
 
 " Commentary
 autocmd FileType c setlocal commentstring=//\ %s

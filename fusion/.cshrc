@@ -15,6 +15,7 @@ alias apan			ssh -t apansson.se tmux a -d
 alias mnthome		sudo mount_smbfs //guest@router.asus.com/Shared /Volumes/SHARED
 alias weather		ansiweather -a false -l
 alias gweather		curl wttr.in/
+alias mutt			$HOME/bin/muttwr.sh
 
 # Color definitions
 set     RED="%{\033[0;31m%}"

@@ -23,6 +23,7 @@ alias tpon			sysctl hw.psm.synaptics.touchpad_off=0
 alias weather		ansiweather -a false -l 
 alias gweather		curl wttr.in/
 alias fbreader		FBReader
+alias mutt			$HOME/bin/muttwr.sh
 
 # Color definitions
 set     RED="%{\033[0;31m%}"
