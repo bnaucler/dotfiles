@@ -127,6 +127,7 @@ nnoremap <Leader>xh :w<CR>:silent ! pandoc %:p -s -o %:p:r.html &<CR>
 " Vimux
 let VimuxUseNearest = 0
 let g:VimuxPromptString = "cmd: "
+let g:VimuxOrientation = "h"
 nnoremap <Leader>vv :VimuxPromptCommand("")<CR>
 nnoremap <Leader>vm :w<CR>:VimuxPromptCommand("make ")<CR>
 nnoremap <Leader>vr :VimuxRunLastCommand<CR>
