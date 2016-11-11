@@ -10,7 +10,7 @@ alias lf			ls -FA
 alias ll			ls -lA
 alias vi			vim
 alias cal			gcal --starting-day=1
-alias apan			ssh apansson.se
+alias apan			mosh apansson.se tmux a
 alias halt			sudo shutdown -p now
 alias bright		sudo sysctl hw.acpi.video.lcd0.brightness=100
 alias medi			sudo sysctl hw.acpi.video.lcd0.brightness=60

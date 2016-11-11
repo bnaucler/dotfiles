@@ -41,7 +41,7 @@ set PATH = (~/bin /sbin /bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /
 
 # Environmental variables
 setenv	EDITOR			vim
-setenv	PAGER			less
+setenv	PAGER			"less -S"
 setenv	TERM			screen-256color
 setenv	BLOCKSIZE		K
 setenv	MM_CHARSET		utf8
