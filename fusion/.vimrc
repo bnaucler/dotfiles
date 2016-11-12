@@ -16,6 +16,7 @@ set relativenumber
 set number
 set display+=lastline
 set nofoldenable
+set formatoptions=wat
 
 " Movement
 set scrolloff=3
@@ -136,6 +137,7 @@ nnoremap <Leader>vd :VimuxRunCommand("clear && cd " . expand('%:p:h'))<CR>
 nnoremap <Leader>vh :VimuxRunCommand("clear && cd ~")<CR>
 nnoremap <Leader>vl :VimuxRunCommand("clear && ls -l " . expand('%:p'))<CR>
 nnoremap <Leader>vp :w<CR>:VimuxRunCommand("clear && cd " . expand('%:p:h') .  "/.. &&  pio run -t upload")<CR>
+nnoremap <Leader>vg :w<CR>:VimuxRunCommand("clear && cd " . expand('%:p:h') .  " &&  go run " . expand('%:t'))<CR>
 nnoremap <Leader>vc :VimuxRunCommand("clear && cloc " . expand('%:p:h'))<CR>
 nnoremap <Leader>vq :VimuxCloseRunner<CR>
 

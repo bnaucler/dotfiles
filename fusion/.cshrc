@@ -16,6 +16,7 @@ alias mnthome		sudo mount_smbfs //guest@router.asus.com/Shared /Volumes/SHARED
 alias weather		ansiweather -a false -l
 alias gweather		curl wttr.in/
 alias mutt			$HOME/bin/muttwr.sh
+alias gitl			git log --oneline --graph --all --decorate
 
 # Color definitions
 set     RED="%{\033[0;31m%}"
@@ -46,7 +47,7 @@ setenv	TERM			screen-256color
 setenv	BLOCKSIZE		K
 setenv	MM_CHARSET		utf8
 setenv	ANDROID_HOME	/usr/local/opt/android-sdk
-setenv	GOROOT			/usr/local/opt/go
+# setenv	GOROOT			/usr/local/opt/go
 setenv  GOPATH			$HOME/Dropbox/go
 setenv	LOCATION		amsterdam
 
