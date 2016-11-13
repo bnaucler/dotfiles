@@ -51,7 +51,7 @@ DISABLE_LS_COLORS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,6 +108,7 @@ export LOCATION='amsterdam'
 
 autoload -Uz promptinit
 promptinit
-bindkey -v # Maybe later..
+bindkey -v
 bindkey -M viins 'hh' vi-cmd-mode
-
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
