@@ -51,7 +51,7 @@ DISABLE_LS_COLORS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git history-substring-search go)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,7 +96,8 @@ alias mnthome="sudo mount_smbfs //guest@router.asus.com/Shared /Volumes/SHARED"
 alias weather="ansiweather -a false -l"
 alias gweather="curl wttr.in/"
 alias mutt="$HOME/bin/muttwr.sh"
-alias gitl="git log --oneline --graph --all --decorate"
+alias gitl="git --no-pager log --oneline --graph --all --decorate"
+alias gitd="git diff -w"
 
 export EDITOR='vim'
 export PAGER='less'
@@ -108,3 +109,5 @@ autoload -Uz promptinit
 promptinit
 bindkey -v
 bindkey -M viins 'hh' vi-cmd-mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down

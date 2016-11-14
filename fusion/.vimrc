@@ -16,7 +16,7 @@ set relativenumber
 set number
 set display+=lastline
 set nofoldenable
-set formatoptions=wat
+" set formatoptions=wat
 
 " Movement
 set scrolloff=3
@@ -128,7 +128,7 @@ nnoremap <Leader>xh :w<CR>:silent ! pandoc %:p -s -o %:p:r.html &<CR>
 " Vimux
 let VimuxUseNearest = 0
 let g:VimuxPromptString = "cmd: "
-let g:VimuxOrientation = "h"
+let g:VimuxOrientation = "v"
 nnoremap <Leader>vv :VimuxPromptCommand("")<CR>
 nnoremap <Leader>vm :w<CR>:VimuxPromptCommand("make ")<CR>
 nnoremap <Leader>vr :VimuxRunLastCommand<CR>
