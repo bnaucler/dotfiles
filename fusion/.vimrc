@@ -16,7 +16,7 @@ set relativenumber
 set number
 set display+=lastline
 set nofoldenable
-" set formatoptions=wat
+set cursorline
 
 " Movement
 set scrolloff=3
@@ -100,6 +100,7 @@ nnoremap L $
 nnoremap j gj
 nnoremap k gk
 nnoremap Q <NOP>
+nnoremap <Tab> :set cursorcolumn!<CR>
 nnoremap <CR> o<Esc>k
 nnoremap <C-E>  <C-E><C-E><C-E>
 nnoremap <C-Y>  <C-Y><C-Y><C-Y>

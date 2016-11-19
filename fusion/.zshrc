@@ -97,7 +97,7 @@ alias mnthome="sudo mount_smbfs //guest@router.asus.com/Shared /Volumes/SHARED"
 alias weather="ansiweather -a false -l"
 alias gweather="curl wttr.in/"
 alias mutt="$HOME/bin/muttwr.sh"
-alias gitl="git --no-pager log --oneline --graph --all --decorate"
+alias gitl="git log --oneline --graph --all --decorate"
 alias gitd="git diff -w"
 
 export EDITOR='vim'
