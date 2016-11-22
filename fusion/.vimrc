@@ -108,6 +108,7 @@ nnoremap <C-L> :nohl<CR>:set nofoldenable<CR><C-L>
 inoremap <C-U> <Esc>^d$i
 nnoremap <Leader>n :set relativenumber!<CR>:set number!<CR>
 nnoremap <Leader>s :PresentingStart<CR>
+nnoremap <Leader>e "zyiwdiw:r! ~/bin/khrawemail <C-R>z<CR>kJ
 nnoremap <Leader>p :set paste!<CR>
 nnoremap <Leader>r :source ~/.vimrc<CR>
 nnoremap <Leader>tt :NERDTreeToggle<CR>
@@ -120,6 +121,7 @@ nnoremap <Leader><Leader>j :tabm -1<CR>
 nnoremap <Leader><Leader>k :tabm +1<CR>
 nnoremap <Leader><Leader>l :tabm<CR>
 nnoremap <Leader>c :center<CR>
+nnoremap <Leader>q gqap
 nnoremap <Leader>; mo$a;<Esc>`o
 nnoremap <Leader>wd :silent r ! w3m -dump 
 nnoremap <Leader>wt :ToggleWhitespace<CR>

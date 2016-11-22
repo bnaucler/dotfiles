@@ -16,6 +16,7 @@ set certificate_file=$HOME/.muttcert
 
 # General settings
 set editor="vim +Goyo"			# vim with a zen feeling to it
+set edit_headers				# Because, vim
 set delete						# Autodelete on quit
 set move=no						# Don't move new msgs to mailbox
 set fast_reply					# Don't ask questions on reply
