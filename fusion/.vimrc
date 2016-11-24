@@ -60,6 +60,8 @@ set noexpandtab
 " We live in the 21st century after all
 set encoding=utf-8
 setglobal fileencoding=utf-8
+set fileencodings=utf-8,latin1
+set termencoding=utf-8
 
 " Syntax highlighing
 syntax on
