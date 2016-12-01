@@ -35,20 +35,20 @@ hi StatusLine ctermbg=white ctermfg=blue
 hi TabLineFill ctermbg=blue ctermfg=white
 hi TabLine ctermbg=white ctermfg=black
 hi TabLineSel ctermbg=blue ctermfg=white
-set statusline=%F       "tail of the filename
+set statusline=%F							" Filename tail
 set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, "file encoding
-set statusline+=%{&ff}] "file format
-set statusline+=%h      "help file flag
-set statusline+=%m      "modified flag
-set statusline+=%r      "read only flag
-set statusline+=%y      "filetype
-set statusline+=%{fugitive#statusline()}
-set statusline+=%=      "left/right separator
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ \|\ 	"divider
-set statusline+=%{strftime(\"%H:%M\")} " Display current time
-set statusline+=\ 		" Blankspace at the end
+set statusline+=%{&ff}]						" File format
+set statusline+=%h							" Help file flag
+set statusline+=%m							" Modified flag
+set statusline+=%r							" Read only flag
+set statusline+=%y							" Filetype
+set statusline+=%{fugitive#statusline()}	" Git flag
+set statusline+=%=							" Left/right separator
+set statusline+=%c,							" Cursor column
+set statusline+=%l/%L						" Cursor line/total lines
+set statusline+=\ \|\ 						" Divider
+set statusline+=%{strftime(\"%H:%M\")}		" Display current time
+set statusline+=\ 						" Blankspace at the end
 
 " Formatting
 set autoindent
@@ -80,6 +80,10 @@ set smartcase
 set wildmenu
 set wildmode=list:longest
 
+" When writing email
+autocmd BufRead $TMPDIR/* execute "normal /^$/\n"
+autocmd BufRead $TMPDIR/* execute ":startinsert"
+
 " Commentary
 autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType arduino setlocal commentstring=//\ %s
@@ -94,9 +98,10 @@ let g:better_whitespace_filetypes_blacklist=['go', 'diff', 'gitcommit', 'unite',
 
 " Kebindings
 let mapleader = "\<Space>"
-nnoremap ; :
+inoremap <C-U> <Esc>^d$i
 inoremap hh <Esc>
 vnoremap hh <Esc>
+nnoremap ; :
 nnoremap H ^
 nnoremap L $
 nnoremap j gj
@@ -107,7 +112,6 @@ nnoremap <CR> o<Esc>k
 nnoremap <C-E>  <C-E><C-E><C-E>
 nnoremap <C-Y>  <C-Y><C-Y><C-Y>
 nnoremap <C-L> :nohl<CR>:set nofoldenable<CR><C-L>
-inoremap <C-U> <Esc>^d$i
 nnoremap <Leader>n :set relativenumber!<CR>:set number!<CR>
 nnoremap <Leader>s :PresentingStart<CR>
 nnoremap <Leader>e "zyiwdiw:r! ~/bin/khrawemail <C-R>z<CR>kJ
@@ -115,6 +119,8 @@ nnoremap <Leader>p :set paste!<CR>
 nnoremap <Leader>r :source ~/.vimrc<CR>
 nnoremap <Leader>tt :NERDTreeToggle<CR>
 nnoremap <Leader>tc :NERDTree-cd<CR>
+nnoremap <Leader>j :split<CR>
+nnoremap <Leader>k :only<CR>
 nnoremap <Leader>f :tabe 
 nnoremap <Leader>l :tabn<CR>
 nnoremap <Leader>h :tabp<CR>
