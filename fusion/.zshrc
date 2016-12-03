@@ -98,6 +98,7 @@ alias weather="ansiweather -a false -l"
 alias gweather="curl wttr.in/"
 alias mutt="$HOME/bin/muttwr.sh"
 alias khal='/bin/csh -exec /usr/local/bin/khal "$@"'
+alias ikhal='/bin/csh -exec /usr/local/bin/khal interactive "$@"'
 alias gitl="git log --oneline --graph --all --decorate"
 alias gitd="git diff -w"
 
