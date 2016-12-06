@@ -92,6 +92,9 @@ autocmd FileType arduino setlocal commentstring=//\ %s
 let NERDTreeMapOpenInTab='<ENTER>'
 let NERDTreeQuitOnOpen=1
 
+" Marked
+let g:marked_app = 'Markoff'
+
 " Better Whitespace
 highlight ExtraWhitespace ctermbg=red
 let g:better_whitespace_filetypes_blacklist=['go', 'diff', 'gitcommit', 'unite', 'qf', 'help']
@@ -140,6 +143,7 @@ nnoremap <Leader>sds :silent r ! surfraw -browser=dw3m.sh stack
 nnoremap <Leader>sdg :silent r ! surfraw -browser=dw3m.sh google 
 nnoremap <Leader>xp :w<CR>:silent ! pandoc %:p -s -o %:p:r.pdf &<CR>
 nnoremap <Leader>xh :w<CR>:silent ! pandoc %:p -s -o %:p:r.html &<CR>
+nnoremap <Leader>xm :MarkedOpen<CR>
 
 " Vimux
 let VimuxUseNearest = 0
