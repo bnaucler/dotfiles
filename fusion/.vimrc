@@ -50,12 +50,16 @@ set statusline+=\ \|\ 						" Divider
 set statusline+=%{strftime(\"%H:%M\")}		" Display current time
 set statusline+=\ 						" Blankspace at the end
 
-" Formatting
+" Formatting & indention
+filetype indent off
+" filetype plugin indent on
 set autoindent
+set smartindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
+au BufRead,BufNewFile *.css setlocal nocindent
 
 " We live in the 21st century after all
 set encoding=utf-8
@@ -65,7 +69,6 @@ set termencoding=utf-8
 
 " Syntax highlighing
 syntax on
-filetype plugin indent on
 au BufRead,BufNewFile *.ino set filetype=arduino
 au BufRead,BufNewFile *.pde set filetype=arduino
 hi Comment ctermfg=magenta

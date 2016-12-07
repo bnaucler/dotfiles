@@ -96,6 +96,7 @@ alias jawa="mosh bwn@jawa.homebase.dk"
 alias mnthome="sudo mkdir /Volumes/SHARED && sudo mount_smbfs //guest@router.asus.com/Shared /Volumes/SHARED"
 alias weather="ansiweather -a false -l"
 alias gweather="curl wttr.in/"
+alias dante="curl dante.bnaucler.se/raw"
 alias mutt="$HOME/bin/muttwr.sh"
 alias khal='/bin/csh -exec /usr/local/bin/khal "$@"'
 alias ikhal='/bin/csh -exec /usr/local/bin/khal interactive "$@"'
