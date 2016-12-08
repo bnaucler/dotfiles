@@ -51,15 +51,14 @@ set statusline+=%{strftime(\"%H:%M\")}		" Display current time
 set statusline+=\ 						" Blankspace at the end
 
 " Formatting & indention
-filetype indent off
-" filetype plugin indent on
+filetype plugin indent on
 set autoindent
 set smartindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
-au BufRead,BufNewFile *.css setlocal nocindent
+au BufRead,BufNewFile *.css filetype indent off
 
 " We live in the 21st century after all
 set encoding=utf-8

@@ -67,8 +67,6 @@ set message_cachedir=$HOME/.mutt/cache/bodies
 set certificate_file=$HOME/.mutt/certificates
 
 # Address book
-set alias_file=$HOME/.mutt-alias
-source $HOME/.mutt-alias
 set query_command= "khard email --parsable %s"
 bind editor <Tab> complete-query
 bind editor ^T    complete
