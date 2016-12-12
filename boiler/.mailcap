@@ -7,3 +7,8 @@ text/html; w3m -I %{charset} -T text/html; copiousoutput;
 text/calendar; khaler %s
 application/ics; khaler %s
 application/octet-stream; khaler %s
+
+# Images
+image/gif; feh %s
+image/jpg; feh %s
+image/png; feh %s

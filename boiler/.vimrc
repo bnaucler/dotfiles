@@ -90,6 +90,7 @@ autocmd BufRead $TMPDIR/* execute ":startinsert"
 " Commentary
 autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType arduino setlocal commentstring=//\ %s
+autocmd FileType lua setlocal commentstring=--\ %s
 
 " Nerdtree
 let NERDTreeMapOpenInTab='<ENTER>'

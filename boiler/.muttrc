@@ -1,7 +1,7 @@
 # bnaucler's mutt configuration
 
 # Call external sendmail client
-set sendmail = "$HOME/bin/msmtp.sh -a mail.jails.se"
+set sendmail = "/usr/bin/msmtp -a mail.jails.se"
 
 # Initiate accounts
 folder-hook 'mail.jails.se' 'source $HOME/.mutt/account.jails'
