@@ -109,6 +109,7 @@ export PAGER='less'
 export BLOCKSIZE='K'
 export GOPATH=$HOME/Dropbox/go
 export LOCATION='amsterdam'
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
 
 autoload -Uz promptinit
 promptinit

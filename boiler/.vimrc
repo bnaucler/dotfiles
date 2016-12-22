@@ -51,8 +51,7 @@ set statusline+=%{strftime(\"%H:%M\")}		" Display current time
 set statusline+=\ 						" Blankspace at the end
 
 " Formatting & indention
-filetype indent off
-" filetype plugin indent on
+filetype plugin indent on
 set autoindent
 set smartindent
 set tabstop=4
@@ -85,7 +84,6 @@ set wildmode=list:longest
 
 " When writing email
 autocmd BufRead $TMPDIR/* execute "normal /^$/\n"
-autocmd BufRead $TMPDIR/* execute ":startinsert"
 
 " Commentary
 autocmd FileType c setlocal commentstring=//\ %s
