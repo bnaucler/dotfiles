@@ -16,7 +16,7 @@ alias gofixed"sudo netctl stop bnaucler.se.wifi && sudo netctl start bnaucler.se
 alias dante="curl dante.bnaucler.se/raw"
 alias mutt="$HOME/bin/muttwr.sh"
 alias chrome="google-chrome-unstable"
-alias mnthome="sudo mount -t cifs //router.asus.com/Shared /mnt/home"
+alias mnthome="sshfs -C shared@furnace:/home/shared /mnt/home -o allow_other"
 alias gitl="git log --oneline --graph --all --decorate"
 alias gitd="git diff -w"
 alias zzz="$HOME/bin/zzz.sh"
