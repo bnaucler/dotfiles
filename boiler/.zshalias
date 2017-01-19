@@ -21,3 +21,6 @@ alias gitl="git log --oneline --graph --all --decorate"
 alias gitd="git diff -w"
 alias zzz="$HOME/bin/zzz.sh"
 alias totmem="$HOME/bin/totmem.sh"
+alias snes="retroarch -L /usr/lib/libretro/bsnes_balanced_libretro.so"
+alias n64="retroarch -L /usr/lib/libretro/mupen64plus_libretro.so"
+
