@@ -48,7 +48,7 @@ set statusline+=%c,							" Cursor column
 set statusline+=%l/%L						" Cursor line/total lines
 set statusline+=\ \|\ 						" Divider
 set statusline+=%{strftime(\"%H:%M\")}		" Display current time
-set statusline+=\							" Blankspace at the end
+set statusline+=\ 							" Blankspace at the end
 
 " Formatting & indention
 filetype plugin indent on
