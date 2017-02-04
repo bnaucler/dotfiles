@@ -11,7 +11,7 @@ source $HOME/.mutt/account.homebase
 # Who am I?
 set from="mail@bnaucler.se"
 set realname="Björn Westerberg Nauclér"
-set signature=$HOME/.signature
+set signature=$HOME/.pdata/signature.md
 set certificate_file=$HOME/.muttcert
 
 # General settings
