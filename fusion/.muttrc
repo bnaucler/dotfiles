@@ -67,7 +67,8 @@ set message_cachedir=$HOME/.mutt/cache/bodies
 set certificate_file=$HOME/.mutt/certificates
 
 # Address book
-set query_command= "khard email --parsable %s"
+set query_command= "iddb email %s"
+# set query_command= "khard email --parsable %s"
 bind editor <Tab> complete-query
 bind editor ^T    complete
 macro index,pager A "<pipe-message>khard add-email<return>" "add the sender email address to khard"
