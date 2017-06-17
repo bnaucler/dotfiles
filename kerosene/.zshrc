@@ -1,8 +1,5 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/rewt/.oh-my-zsh
+export ZSH=/home/rewt/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,7 +48,7 @@ DISABLE_LS_COLORS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history-substring-search)
+plugins=(git history-substring-search go)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -60,7 +57,8 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+export LANG="en_US.UTF-8"
+export LC_MESSAGES="C"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -83,28 +81,15 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-alias vi="vim"
-alias cal="gcal --starting-day=1"
-alias apan="mosh apansson.se tmux a"
-alias halt="sudo shutdown -p now"
-alias bright="sudo sysctl hw.acpi.video.lcd0.brightness=100"
-alias medi="sudo sysctl hw.acpi.video.lcd0.brightness=60"
-alias dim="sudo sysctl hw.acpi.video.lcd0.brightness=20"
-alias mnthome="sudo mount_smbfs -I router.asus.com //guest@router.asus.com/Shared /mnt/home/"
-alias mntusb="sudo mount -t msdosfs /dev/da0s1 /mnt/usb"
-alias umntusb="sudo umount /mnt/usb"
-alias tpoff="sysctl hw.psm.synaptics.touchpad_off=1"
-alias tpon="sysctl hw.psm.synaptics.touchpad_off=0"
-alias weather="ansiweather -a false -l "
-alias gweather="curl wttr.in/"
-alias fbreader="FBReader"
-alias mutt="$HOME/bin/muttwr.sh"
+source $HOME/.zshalias
 
 export EDITOR='vim'
 export PAGER='less'
 export BLOCKSIZE='K'
 export GOPATH=$HOME/Dropbox/go
 export LOCATION='amsterdam'
+export CKB='us'
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOPATH/bin
 
 autoload -Uz promptinit
 promptinit
